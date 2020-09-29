@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createRef, useState } from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import List from "./components/List";
+import { Link } from "react-router-dom";
 
+// form 연습
+// 요청주소 : http://10.100.102.2:8000/api/movie
+// 메서드 : post
+// content-type : application/json
+// 응답 : plain/text 성공시 : "ok"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+
+      <Route path="/" exact={true} component={Main}></Route>
+      <Route path="/list" exact={true} component={List}></Route>
     </div>
   );
 }
